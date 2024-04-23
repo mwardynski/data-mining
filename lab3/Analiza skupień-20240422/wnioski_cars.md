@@ -3,7 +3,7 @@ Marcin Wardyński
 
 ## Metoda k-średnich
 Wykres średnich zmiennych ilościowych pokazuje uśrednione, znormalizowane wartości dla każdego z wyznaczonych czterech klastrów.
-Elementy skupienia pokazują natomiast które marki zostały zakwalifikowane do ktorego klastra
+Elementy skupienia pokazują natomiast które marki zostały zakwalifikowane do ktorego klastra. Możliwy jest też wgląd w rozkład wartości każdej z analizowanych cech w zależności od klastra.
 
 ## Aglomeracja metodą Warda
 W efekcie uruchomienia tej klasteryzacji zostanie nam przedstawione drzewo z rozgałęzieniami na kolejne klastry dla poszczególnych odległości pomiędzy analizowanymi rekordami.
