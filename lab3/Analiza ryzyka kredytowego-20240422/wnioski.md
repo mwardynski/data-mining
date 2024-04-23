@@ -1,3 +1,4 @@
+Marcin Wardyński
 # Analiza ryzyka kredytowego
 
 ## Rozkład danych z histogramów

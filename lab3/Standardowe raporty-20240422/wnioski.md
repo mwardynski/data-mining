@@ -1,4 +1,5 @@
-## Wartości z raportu
+Marcin Wardyński
+## Analizy skuteczności kampanii reklamowych PEPSI i COKE
 
 Poniżej umieszczę kilka danych statystycznych, które możemy odczytać z raportu wygenerowanego na końcu strumienia:
 

@@ -1,3 +1,4 @@
+Marcin Wardyński
 # Analiza skupień dla cars.sta
 
 ## Metoda k-średnich
