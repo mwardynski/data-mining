@@ -2,7 +2,7 @@ function [moving_avg, template_boundaries, template_peaks] = find_template(data,
     template_tmp_peaks = [];
     template_boundaries = [];
     template_peaks = [];
-    moving_avg = zeros(size(data));
+    moving_avg = NaN(size(data));
     for i = template_window_size:length(data)
         window_avg = mean(data(i-template_window_size+1:i));
 
@@ -10,13 +10,11 @@ function [moving_avg, template_boundaries, template_peaks] = find_template(data,
             if length(template_tmp_peaks) >= 3
                 template_boundaries = [template_boundaries; [template_tmp_peaks(1), template_tmp_peaks(end)]];
                 template_peaks = [template_peaks, template_tmp_peaks];
-                disp(['store: ', num2str(i)]);
             end
             template_tmp_peaks = [];
         end
 
         if data(i) > template_coeff * window_avg
-            disp(['match: ', num2str(i)]);
             template_tmp_peaks = [template_tmp_peaks, i];
         end
     
@@ -26,7 +24,6 @@ function [moving_avg, template_boundaries, template_peaks] = find_template(data,
         if length(template_tmp_peaks) >= 3
             template_boundaries = [template_boundaries; [template_tmp_peaks(1), template_tmp_peaks(end)]];
             template_peaks = [template_peaks, template_tmp_peaks];
-            disp(['store: ', num2str(i)]);
         end
         template_tmp_peaks = [];
     end
