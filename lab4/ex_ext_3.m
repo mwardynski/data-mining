@@ -10,18 +10,18 @@ disp(['Minkowski Distance (m = ', num2str(m), '): ', num2str(minkowski_distance)
 data_1 = Dane;
 data_2 = ext_data;
 
-euclidean_distance_prog_window = NaN(length(data_1));
+euclidean_distance_exp_window = NaN(length(data_1));
 for i = 1:length(data_1)
     p = length(data_1(1:i));
     euclidean_distance_tmp = sqrt(sum((data_1(1:i) - data_2(1:i)).^2)/p);
-    euclidean_distance_prog_window(i) =  euclidean_distance_tmp;
+    euclidean_distance_exp_window(i) =  euclidean_distance_tmp;
 end
 
-minkowski_distance_prog_window = NaN(length(data_1));
+minkowski_distance_exp_window = NaN(length(data_1));
 for i = 1:length(Dane)
     p = length(data_1(1:i));
     minkowski_distance_tmp = sqrt(sum((data_1(1:i) - data_2(1:i)).^2)/p);
-    minkowski_distance_prog_window(i) =  minkowski_distance_tmp;
+    minkowski_distance_exp_window(i) =  minkowski_distance_tmp;
 end
 
 figure;
@@ -33,10 +33,10 @@ figure;
     title(['Euclidean Distance: ', num2str(euclidean_distance), ', Minkowski Distance (m = ', num2str(m), '): ', num2str(minkowski_distance)]);
     legend;
     subplot(3, 1, 2);
-    plot(1:length(euclidean_distance_prog_window), euclidean_distance_prog_window);
-    title('Progressing Window - Euclidean');
+    plot(1:length(euclidean_distance_exp_window), euclidean_distance_exp_window);
+    title('Expanding Window - Euclidean');
     subplot(3, 1, 3);
-    plot(1:length(minkowski_distance_prog_window), minkowski_distance_prog_window);
-    title(['Progressing Window - Minkowski (m = ', num2str(m), ')']);
+    plot(1:length(minkowski_distance_exp_window), minkowski_distance_exp_window);
+    title(['Expanding Window - Minkowski (m = ', num2str(m), ')']);
 
 
