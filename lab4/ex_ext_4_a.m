@@ -33,11 +33,13 @@ function plot_template(data, moving_avg, template_boundaries, template_peaks)
     template_existance = zeros(size(data));
     for i = 1:size(template_boundaries, 1)
         template_range = template_boundaries(i, :);
+        disp(['template window: [', num2str(template_range(1)), ', ', num2str(template_range(2)), ']'])
         for j = template_range(1):template_range(2)
             template_existance(j) = 1;
         end
     end
     for i = 1:length(template_peaks)
+        disp(['template peak: ', num2str(template_peaks(i))])
         template_existance(template_peaks(i)) = 2;
     end
 

@@ -1,3 +1,5 @@
+Dane = load('Ukraine Explorer Inputs Prod - RefugeesSeries [matlab].mat').Dane;
+
 rng('default');
 
 data_length = length(Dane);
@@ -6,6 +8,9 @@ sigma = 2e+06;
 
 ext_data = mu + sigma * randn(1, data_length);
 ext_data = transpose(ext_data);
+
+% save('generated_series.mat', 'ext_data');
+ext_data = load('generated_series.mat').ext_data;
 
 pearson_correlation = corr(Dane, ext_data, 'Type', 'Pearson');
 disp(['Pearson Correlation Coefficient: ', num2str(pearson_correlation)]);
@@ -30,8 +35,8 @@ kendall_exp_window = calc_exp_window(Dane, ext_data, 'Kendall');
 figure;
     subplot(4, 1, 1);
     hold on;
-    plot(1:length(data_1), data_1, 'b-', 'DisplayName', 'Original Data');
-    plot(1:length(data_2), data_2, 'r-', 'DisplayName', 'Generated Data');
+    plot(1:length(Dane), Dane, 'b-', 'DisplayName', 'Original Data');
+    plot(1:length(ext_data), ext_data, 'r-', 'DisplayName', 'Generated Data');
     hold off;
     title(['Pearson correlation: ', num2str(pearson_correlation), ', Spearman correlation: ', num2str(spearman_correlation), ', Kendall correlation: ', num2str(kendall_correlation)]);
     legend;

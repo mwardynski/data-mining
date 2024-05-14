@@ -15,7 +15,9 @@ function plot_template(data, moving_avg, template_starts, template)
     template_existance = zeros(size(data));
     for i = 1:length(template_starts)
         template_start = template_starts(i);
-        template_existance(template_start:template_start+length(template)-1) = template;
+        template_end = template_start+length(template)-1;
+        template_existance(template_start:template_end) = template;
+        disp(['template window: [', num2str(template_start), ', ', num2str(template_end), ']'])
     end
 
     figure;
@@ -34,7 +36,7 @@ end
 
 data = ext_data;
 template_avg_size = 22;
-template = [-1, -1, 1, 1];
+template = [-1, 1, -1, 1];
 [moving_avg, template_starts] = find_template(data, template_avg_size, template);
 plot_template(data, moving_avg, template_starts, template)
 
